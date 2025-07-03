@@ -12,7 +12,10 @@ This folder defines the backend infrastructure for OmarFinance using Terraform. 
 
 - Running AWS Control Tower ATF setup
 
-📁 Step 1: Zip Lambda Code
+📁 Step 1: Make changes
+Make the changes to the index.mjs if necesary.
+
+📁 Step 2: Zip/Rezip Lambda Code
 cd ../lambda
 npm install
 zip -r ../lambda.zip .
