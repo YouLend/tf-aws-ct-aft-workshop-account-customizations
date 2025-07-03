@@ -13,6 +13,12 @@ This folder defines the backend infrastructure for OmarFinance using Terraform. 
 
 - Running AWS Control Tower ATF setup
 
+📁 Step 1: Zip Lambda Code
+cd ../lambda
+npm install
+zip -r ../lambda.zip .
+cd ..
+
 ## 📄 License
 
 MIT © 2025 Omar Din

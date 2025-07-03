@@ -1,17 +1,3 @@
-resource "null_resource" "build_lambda" {
-  provisioner "local-exec" {
-    command = <<EOT
-      cd lambda
-      npm install
-      zip -r ../lambda.zip .
-    EOT
-  }
-
-  triggers = {
-    always_run = "${timestamp()}"
-  }
-}
-
 resource "aws_lambda_function" "loan_handler" {
   filename         = "lambda.zip"
   function_name    = "loanHandler"
@@ -26,7 +12,6 @@ resource "aws_lambda_function" "loan_handler" {
   }
 
   role = aws_iam_role.lambda_exec_role.arn
-  depends_on = [null_resource.build_lambda]
 }
 
 resource "aws_lambda_permission" "allow_api_gateway" {
