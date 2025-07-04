@@ -1,8 +1,9 @@
-resource "aws_config_config_rule" "s3_pii_tag_check" {
-  name = "s3-pii-tag-check"
+resource "aws_config_config_rule" "require_pii_tag" {
+  name = "require-pii-tag"
+
   source {
     owner             = "AWS"
-    source_identifier = "S3_BUCKET_TAGGING_ENABLED"
+    source_identifier = "REQUIRED_TAGS"
   }
 
   scope {
@@ -13,5 +14,5 @@ resource "aws_config_config_rule" "s3_pii_tag_check" {
     tag1Key = "PII"
   })
 
-  description = "Ensure S3 buckets are tagged with 'PII'"
+  description = "Ensure all S3 buckets are tagged with 'PII'"
 }
